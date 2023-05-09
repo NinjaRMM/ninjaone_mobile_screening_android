@@ -19,7 +19,7 @@ class CategoryItemDetailsFragment : BaseFragment<FragmentCategoryItemDetailsBind
     }
 
     override fun setupViewModel() {
-
+        binding.vm = categoryItemListVm
     }
 
     override fun setupObservers() {

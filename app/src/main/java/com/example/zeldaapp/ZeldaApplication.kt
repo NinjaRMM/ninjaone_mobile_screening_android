@@ -9,6 +9,11 @@ class ZeldaApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        startKoin {
+            androidContext(this@ZeldaApplication)
+            modules(CategoryDi.module)
+        }
     }
 
 }

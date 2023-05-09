@@ -10,8 +10,11 @@ In the /screenshots folder you will find what the UI should look like. Please re
 2. Things to fix/add:
 
 - The app is crashing on launch for 2 reasons, please determine why it’s crashing and make the corrections.
+  1. Koin was not being initializedon the Application class
+  2. There was a missing 'S' for viewModel Injection on CategoryTypeListFragment
 - Determine why the description isn’t showing in each list item and fix.
 - Determine why the details screen isn’t showing all the mapped information correctly and fix.
+  category name must be lowercase, and missing '/' at the end of base url
 - There are inconstancies in the text formatting in the application, find where the issues are and fix them.
 - In CategoryItemListUseCase.kt there is an API request that needs to be added noted by // TODO: Implement the request here.
 - In the search functionality show the close icon instead of the search icon when the user enters text.

@@ -1,6 +1,7 @@
 package com.example.zeldaapp.category.presentation.type
 
 import androidx.annotation.VisibleForTesting
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.commons.base.BaseFragment
 import com.example.zeldaapp.R
@@ -17,7 +18,7 @@ class CategoryTypeListFragment : BaseFragment<FragmentCategoryTypeListBinding>(
     @VisibleForTesting
     val paramsVm: CategoryParamsViewModel by sharedViewModel()
     @VisibleForTesting
-    val categoryListVm: CategoryTypeListViewModel by viewModel()
+    val categoryListVm: CategoryTypeListViewModel by viewModels()
     override fun setupViewModel() {
         binding.vm = categoryListVm
     }
