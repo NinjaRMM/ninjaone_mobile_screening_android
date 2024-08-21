@@ -1,29 +1,31 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("androidx.navigation.safeargs.kotlin")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
+    alias(libs.plugins.hiltAndroidPlugin)
 }
 
 android {
-    compileSdkVersion(AppConfig.compileSdk)
+    namespace = "com.example.ninjaandroidscreening"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.zeldaapp"
-        minSdkVersion(AppConfig.minSdk)
-        targetSdkVersion(AppConfig.targetSdk)
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+        applicationId = "com.example.ninjaandroidscreening"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
 
-        testInstrumentationRunner = AppConfig.customInstrumentedRunner
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
-        getByName(AppConfig.release) {
+        release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile(AppConfig.proguardOptimize),
-                AppConfig.proguardRules
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
@@ -33,42 +35,45 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    viewBinding {
-        android.buildFeatures.viewBinding = true
-        android.buildFeatures.dataBinding = true
-        android.buildFeatures.compose = true
+    buildFeatures {
+        compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
+        kotlinCompilerExtensionVersion = "1.5.1"
     }
-
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
-    implementation(project(":commons"))
-    implementation(project(":network"))
-    implementation(project(":ui"))
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.navigationCompose)
+    implementation(libs.hiltNavigationCompose)
+    implementation(libs.hiltAndroid)
+    kapt(libs.hiltCompiler)
+    implementation(libs.retrofit)
+    implementation(libs.retrofitConverter)
+    implementation(libs.gson)
+    implementation(libs.okhttp)
 
-    implementation(AppDependencies.coreLibraries)
-    implementation(AppDependencies.koinLibraries)
-    implementation(AppDependencies.lifecycleLibraries)
-    implementation(AppDependencies.navigationLibraries)
-    implementation(AppDependencies.uiLibraries)
-
-    implementation(AppDependencies.retrofit)
-    implementation(AppDependencies.gson)
-    implementation(AppDependencies.cardView)
-
-    implementation(AppDependencies.composeActivity)
-    implementation(AppDependencies.composeMaterial)
-    implementation(AppDependencies.constraintMaterial)
-    implementation(AppDependencies.material3)
-    implementation(AppDependencies.viewModelKtx)
-    implementation(AppDependencies.viewModelCompose)
-
-    debugImplementation(AppDependencies.fragmentTesting)
-
-    testImplementation(AppDependencies.unitTestLibraries)
-
-    androidTestImplementation(AppDependencies.androidTestLibraries)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }
