@@ -64,10 +64,9 @@ dependencies {
     implementation(libs.hiltNavigationCompose)
     implementation(libs.hiltAndroid)
     kapt(libs.hiltCompiler)
-    implementation(libs.retrofit)
-    implementation(libs.retrofitConverter)
-    implementation(libs.gson)
-    implementation(libs.okhttp)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

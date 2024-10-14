@@ -6,8 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.ninjaandroidscreening.assessment.pagination.PaginationAssessmentScreen
-import com.example.ninjaandroidscreening.dashboard.DashboardScreen
+import com.example.ninjaandroidscreening.ui.dashboard.DashboardScreen
 
 @Composable
 fun ScreeningNavHost(
@@ -23,14 +22,10 @@ fun ScreeningNavHost(
     ) {
         composable("DashboardScreen") {
             DashboardScreen(
-                onNavigationAssessmentButtonClick = {},
-                onPaginationAssessmentButtonClick = {
-                    navController.navigate("PaginationAssessmentScreen")
+                onAddNewUserButtonClick = {
+                    // Navigate to Nested Add User Graph
                 },
             )
-        }
-        composable("PaginationAssessmentScreen") {
-            PaginationAssessmentScreen()
         }
     }
 }

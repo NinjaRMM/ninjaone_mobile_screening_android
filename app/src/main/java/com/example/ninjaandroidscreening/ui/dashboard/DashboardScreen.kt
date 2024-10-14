@@ -1,4 +1,4 @@
-package com.example.ninjaandroidscreening.dashboard
+package com.example.ninjaandroidscreening.ui.dashboard
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,23 +13,16 @@ import com.example.ninjaandroidscreening.R
 
 @Composable
 fun DashboardScreen(
-    onNavigationAssessmentButtonClick: () -> Unit,
-    onPaginationAssessmentButtonClick: () -> Unit,
+    onAddNewUserButtonClick: () -> Unit
 ) {
     Column(
         modifier = Modifier.padding(16.dp)
     ) {
         Button(
-            onClick = onNavigationAssessmentButtonClick,
+            onClick = onAddNewUserButtonClick,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(text = stringResource(R.string.navigation_assessment))
-        }
-        Button(
-            onClick = onPaginationAssessmentButtonClick,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Text(text = stringResource(R.string.pagination_assessment))
+            Text(text = stringResource(R.string.add_new_user))
         }
     }
 }

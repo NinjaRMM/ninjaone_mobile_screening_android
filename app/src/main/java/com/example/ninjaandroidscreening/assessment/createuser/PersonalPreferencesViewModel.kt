@@ -1,4 +1,4 @@
-package com.example.ninjaandroidscreening.assessment.navigation
+package com.example.ninjaandroidscreening.assessment.createuser
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
