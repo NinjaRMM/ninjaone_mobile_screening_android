@@ -1,7 +1,6 @@
 1. Please download this repo and get the app running on your machine/IDE.
 
-2. Feel free to improve any pre-developed code. If so, please add a new IMPROVEMENTS_README.md to the project and list the 
-   improvements you've made.
+2. Add your name to IMPROVEMENTS_README.md. Feel free to improve any pre-developed code. List out changes and improvements you've made in this file.
 
 3. Assignment Steps:
 
