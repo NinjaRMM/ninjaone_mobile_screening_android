@@ -1,4 +1,4 @@
-package com.example.ninjaandroidscreening
+package com.example.ninjaandroidscreening.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

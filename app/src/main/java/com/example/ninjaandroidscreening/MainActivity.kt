@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.example.ninjaandroidscreening.ui.navigation.ScreeningNavHost
 import com.example.ninjaandroidscreening.ui.theme.NinjaAndroidScreeningTheme
 import dagger.hilt.android.AndroidEntryPoint
 
